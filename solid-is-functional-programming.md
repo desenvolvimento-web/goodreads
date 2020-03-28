@@ -1,4 +1,4 @@
-Autor: Luiz Felipe Stangarlin ((Luiz-Monad)[https://gist.github.com/Luiz-Monad])
+Autor: Luiz Felipe Stangarlin ([@Luiz-Monad](https://gist.github.com/Luiz-Monad))
 
 # SOLID is FP
 
