@@ -1,5 +1,5 @@
-Autor: Lucas M. Dutra ([@terremoth](https://github.com/terremoth))
-Original: https://www.facebook.com/groups/desenvolvimentoweb/permalink/3030248403700245
+Autor: Lucas M. Dutra ([@terremoth](https://github.com/terremoth))<br>
+Original: https://www.facebook.com/groups/osadpa/permalink/1349988091773381/
 
 # BE A BETTER PROGRAMMER
 Me deu cegueira ao ler esse código:
