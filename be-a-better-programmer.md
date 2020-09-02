@@ -1,18 +1,19 @@
 Autor: Lucas M. Dutra ([@terremoth](https://github.com/terremoth))
+Original: https://www.facebook.com/groups/desenvolvimentoweb/permalink/3030248403700245
 
 # BE A BETTER PROGRAMMER
 Me deu cegueira ao ler esse código:
-https://gist.github.com/an…/ea4ac8ac720569df926f0b220627789e
+https://gist.github.com/anonymous/ea4ac8ac720569df926f0b220627789e
 
 Para quem escreve códigos assim, vai aí muitas dicas valiosas:
 
-- Evite usar a função "mail()" do PHP - motivos: https://stackoverflow.com/…/why-shouldnt-i-use-phps-mail-fu… , ao invés, prefira usar o PHPMailer que já tem classe de SMTP dentro: https://github.com/PHPMailer/PHPMailer
+- Evite usar a função "mail()" do PHP - motivos: https://stackoverflow.com/questions/4565066/why-shouldnt-i-use-phps-mail-function, ao invés, prefira usar o PHPMailer que já tem classe de SMTP dentro: https://github.com/PHPMailer/PHPMailer
 
 - Não usar short tags no PHP (<?), nem mesmo a de echo (<?= )e sim a completa: <?php . O motivo é simples: nem todo servidor aceita short tag, nem todo servidor vai deixar você mexer no php.ini para habilitar. Imagine que sua aplicação tenha sito toda escrita com short tags e o servidor não aceite, vc terá que mudar em todos os arquivos para voltar a funcionar.
 
 - Não misturar PHP com HTML. A separação de uso e interesses deve ser respeitada, o código fica sujo, difícil de dar manutenção. Procure no mínimo colocar o php num arquivo e o HTML no outro, CSS em outro e JavaScript a mesma coisa - separe tudo.
 
-- Não acesse variáveis globais diretamente: ($_POST, $_GET, $_COOKIE etc), o motivo é simples: há funções do *próprio* PHP que já sanitizam/limpam indesejos que possam vir na string, na tentativa de realizar um ataque na sua aplicação (ex: SQL Injection e XSS) - como a filter_input (http://php.net/manual/pt_BR/function.filter-input.php), é sério, aprendam a usar essa merda e parem de usar "$_" na aplicação de vocês;
+- Não acesse variáveis globais diretamente: ($_POST, $_GET, $_COOKIE etc), o motivo é simples: há funções do *próprio* PHP que já sanitizam/limpam indesejos que possam vir na string, na tentativa de realizar um ataque na sua aplicação (ex: SQL Injection e XSS) - como a filter_input (https://www.php.net/manual/pt_BR/function.filter-input.php), é sério, aprendam a usar essa merda e parem de usar "$_" na aplicação de vocês;
 
 - Não criem campos hidden para verificas se "houve um post na página" como foi feito com a variávei $subm - se quiser valide com dados reais que serão usados em algum lugar, ou use Rotas para entrar dentro de controllers - se chegar lá, é porquê houve requisição;
 
@@ -24,7 +25,7 @@ Para quem escreve códigos assim, vai aí muitas dicas valiosas:
 
 - Não use esse tipo de exit caso algo que você não quer ocorra: exit("<h3>Sem meta/header inclusões, por favor.</h3>"); iria mostrar uma página em branco apenas com o H3, isso não é bom para experiência do usuário, prefira fazer esse tipo de tratamento via javascript.
 
-- Prefira usar UTF-8 como default charset em todas as suas aplicações do que usar ISO-8859-1 como em "<meta charset=\"iso-8859-1\">", o motivo também é simples: a cadeia de caracteres que UTF-8 abrange é muito (tipo muito mesmo) maior, e você consegue alocar diferentes tipos de caracteres e linguas na sua página - caso você queira saber um pouco mais, dê uma lida em https://dutrahacking.blogspot.com.br/…/como-resolver-proble… ;
+- Prefira usar UTF-8 como default charset em todas as suas aplicações do que usar ISO-8859-1 como em "<meta charset=\"iso-8859-1\">", o motivo também é simples: a cadeia de caracteres que UTF-8 abrange é muito (tipo muito mesmo) maior, e você consegue alocar diferentes tipos de caracteres e linguas na sua página - caso você queira saber um pouco mais, dê uma lida em https://dutrahacking.blogspot.com/2014/12/como-resolver-problemas-de-charset.html;
 
 - Não use chamadas de funções dentro de iterações: como em "for ($i = 0; $i < sizeof($attach); $i++):", as comumente usadas são sizeof e count, toda vida que vai validar se $i é menor que o sizeof, ele re-entra na função sizeof. Qual o problema? Não é errado mas a iteração fica muito mais lenta (teste por si mesmo) do que se você tivesse instanciado tudo numa variável: $attachSize = sizeof($attach); e depois:
 "for ($i = 0; $i < $attachSize); $i++):"
